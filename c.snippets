@@ -1,7 +1,3 @@
-###########################################################################
-#                            TextMate Snippets                            #
-###########################################################################
-
 snippet def "#define ..."
 #define ${1}
 endsnippet
@@ -19,7 +15,7 @@ ${VISUAL}${0:${VISUAL/(.*)/(?1::code)/}}
 endsnippet
 
 snippet inc "#include local header (inc)"
-#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+include "${1:`!p snip.rv = snip.basename + '.h'`}"
 endsnippet
 
 snippet Inc "#include <> (Inc)"
@@ -79,7 +75,7 @@ ${0}
 endsnippet
 
 snippet td "Typedef"
-typedef ${1:int} ${2:MyCustomType};
+typedef ${1:int} ${2:MyCustomType};  //$0 
 endsnippet
 
 snippet wh "while loop"
@@ -127,21 +123,126 @@ printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2
 endsnippet
 
 snippet st "struct"
-struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}
+/**
+ * ${1:description here}
+ */
+struct ${2:`!p snip.rv = (snip.basename or "name") + "_t"`}
 {
-	${0:/* data */}
+	${3:/* data */}  //$4
+	$0
 };
 endsnippet
 
+snippet ts "typedef a sturct" !b
+/**
+ * ${1:description here}
+ */
+typedef struct 
+{
+	${2:/* data */} ; //$3
+	$4
+}${5:`!p snip.rv = (snip.basename or "name") + "_t"`};
+endsnippet
+
+snippet cfun "function" b
+/**
+ * @name       ${1:function_name}
+ * @brief      ${2:funciton description}  
+ * @param[IN]  $3 
+ * @param[OUT] $4 
+ * @return	   $5
+ */
+endsnippet
+
 snippet fun "function" b
-${1:void} ${2:function_name}(${3})
+/**
+ * @name       ${1:function_name}
+ * @brief      ${2:funciton description}  
+ * @param[IN]  $3 
+ * @param[OUT] $4 
+ * @return	   $5
+ */
+${6:void} $1(${7})
 {
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 }
 endsnippet
 
 snippet fund "function declaration" b
-${1:void} ${2:function_name}(${3});
+/**
+ * @name       ${1:function_name}
+ * @brief      ${2:funciton description}  
+ * @param[IN]  $3 
+ * @param[OUT] $4 
+ * @return	   $5
+ */
+${6:void} $1(${0});
+endsnippet
+
+snippet chead "source file header" !b
+/**
+ * Copyright (c),2002-`!v strftime("%Y")`,AllWin Tel CO.,LTD. 
+ * All rights reserved.
+ *
+ * @file			`!v expand("%:t")`
+ * @brief			${1:description here}
+ * @date			`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @compiler		${2:compiler or ide}
+ * @author			tracyone , tracyone@live.cn
+ * @lastchange		`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @history
+ * 1,`!v strftime("%Y-%m-%d/%H:%M:%S")` first release
+ *
+ * ================================================================
+ */
+
+${0:CODE HERE}
+
+//End of File
+endsnippet
+
+snippet hhead "include file header" !b
+/**
+ * Copyright (c),2002-`!v strftime("%Y")`,AllWin Tel CO.,LTD. 
+ * All rights reserved.
+ *
+ * @file			`!v expand("%:t")`
+ * @brief			${1:description here}
+ * @date			`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @compiler		${2:compiler or ide}
+ * @author			tracyone , tracyone@live.cn
+ * @lastchange		`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @history
+ * 1,`!v strftime("%Y-%m-%d/%H:%M:%S")` first release
+ *
+ * ================================================================
+ */
+#ifndef _`!v toupper(tr(expand("%:t"),".","_"))`
+#define _`!v toupper(tr(expand("%:t"),".","_"))`
+
+#ifdef __cplusplus
+extern "C" {
+#endif 
+
+${0:/*CODE HERE*/}
+
+#ifdef __cplusplus
+}
+#endif 
+
+#endif /*End of file*/
+endsnippet
+
+snippet sw "switch" !b
+switch($1)
+{
+	case $2:
+		${3:/*do something*/}
+		break;
+	default:
+		${0:/*do something*/}
+		break;
+}
 endsnippet
 
 # vim:ft=snippets:
