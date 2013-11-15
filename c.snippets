@@ -22,6 +22,11 @@ snippet Inc "#include <> (Inc)"
 #include <${1:.h}>
 endsnippet
 
+snippet xdb "xilinx debug"
+#ifdef _DEBUG
+xil_printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+#endif
+endsnippet
 snippet mark "#pragma mark (mark)"
 #if 0
 ${1:#pragma mark -
