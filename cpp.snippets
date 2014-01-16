@@ -49,4 +49,27 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
 
+snippet cpph "include file header" !b
+/**
+ * Copyright (c),2002-`!v strftime("%Y")`,AllWin Tel CO.,LTD. 
+ * All rights reserved.
+ *
+ * @file			`!v expand("%:t")`
+ * @brief			${1:description here}
+ * @date			`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @compiler		${2:compiler or ide}
+ * @author			tracyone , tracyone@live.cn
+ * @lastchange		`!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * @history
+ * 1,`!v strftime("%Y-%m-%d/%H:%M:%S")` first release
+ *
+ * ================================================================
+ */
+#ifndef _`!v toupper(tr(expand("%:t"),".","_"))`
+#define _`!v toupper(tr(expand("%:t"),".","_"))`
+
+${0:/*CODE HERE*/}
+
+#endif /*End of file*/
+endsnippet
 # vim:ft=snippets:
