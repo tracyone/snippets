@@ -84,13 +84,15 @@ typedef ${1:int} ${2:MyCustomType};  //$0
 endsnippet
 
 snippet wh "while loop"
-while(${1:/* condition */}) {
+while(${1:/* condition */}) 
+{
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 }
 endsnippet
 
 snippet do "do...while loop (do)"
-do {
+do 
+{
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 } while(${1:/* condition */});
 endsnippet
