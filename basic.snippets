@@ -1,0 +1,42 @@
+snippet head "header"
+/*
+ * PROJECT NAME          : ${1:Project name}
+ * MODULE NAME           : ${2:Module name}
+ * CREATETIME            : `!v strftime("%Y-%m-%d/%H:%M:%S")`
+ * AUTHOR                : tracyone,tracyone@live.cn
+ * DESCRIPTION           : ${3:Description here}
+ *                                                                                     
+ * COPYRIGHT (c),2014,广州海昇计算机科技有限公司. All rights reserved
+ * ================================================================
+ */
+
+${0:/*CODE HERE*/}
+
+' End of File
+endsnippet
+
+snippet sub "Create Subroutines" !b
+/**
+ * @name       ${1:Subroutines name}
+ * @brief      ${2:Subroutines description}  
+ * @param:
+ *             $3 
+ * @return	   $4
+ */
+Sub $1
+    ${5:'Code}
+End Sub
+endsnippet
+
+snippet fun "Create Function" !b
+/**
+ * @name       ${1:Function name}
+ * @brief      ${2:Function description}  
+ * @param:
+ *             $3 
+ * @return	   $4
+ */
+Function $1
+    ${5:'Code}
+End Function
+endsnippet
