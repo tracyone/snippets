@@ -85,4 +85,13 @@ while ${2:[[ ${1:condition} ]]}; do
 done
 endsnippet
 
+snippet fun "function definition"
+# ${1:fun_name}:$2
+# argument:$3
+function $1()
+{
+   $0
+}
+endsnippet
+
 # vim:ft=snippets:
