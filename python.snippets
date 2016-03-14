@@ -525,20 +525,20 @@ flags = [
     '-I',
     '.',
     '-isystem',
-    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/include',
+    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/include',
     '-isystem',
-    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../include',
+    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/../../../../include',
     '-isystem',
-    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/include-fixed',
+    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/include-fixed',
     '-isystem',
-    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/include',
-    ${2:${1/c\+\+/'-isystem',
-    'E:\/msys64\/mingw64\/lib\/gcc\/..\/..\/include\/c++\/5.2.0',
+    'E:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/../../../../x86_64-w64-mingw32/include',
     '-isystem',
-    'E:\/msys64\/mingw64\/lib\/gcc\/..\/..\/include\/c++\/5.2.0\/x86_64-w64-mingw32',
+    'E:/msys64/mingw64/lib/gcc/../../include/c++/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`',
     '-isystem',
-    'E:\/msys64\/mingw64\/lib\/gcc\/..\/..\/include\/c++\/5.2.0\/backward',/}}
-	$3
+    'E:/msys64/mingw64/lib/gcc/../../include/c++/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/x86_64-w64-mingw32',
+    '-isystem',
+    'E:/msys64/mingw64/lib/gcc/../../include/c++/`gcc --version | grep 'gcc' |  cut -d ' ' -f7`/backward',
+	$2
 	
 ]
 compilation_database_folder = ''
