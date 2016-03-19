@@ -45,14 +45,18 @@ DFLAGS:=$9
 INCULDES:=$10
 LIBDIRS:=$11
 
+# 指定忽略的文件夹,请以|符号分离每个目录
+IGNORE_DIR:=Debug|Release
+IGNORE_DIR+=$12
+
 # 指定源代码路径，以空格分开..
-SRC_DIR:=. $(shell find . ! -path "." -type d | grep -Ev 'Debug|Release')
+SRC_DIR:=. $(shell find . ! -path "." -type d | grep -Ev '${IGNORE_DIR}')
 
 # 指定支持的源代码扩展名
 SFIX:=.c .cc .C .cpp
 
 # 程序要安装的路径
-prefix:=${12:.}
+prefix:=${13:.}
 
 # 指定依赖文件的搜索路径
 vpath %.cpp ${SRC_DIR}
@@ -78,11 +82,11 @@ OBJS=$(addprefix ${OBJDIR}/,$(addsuffix .o,$(basename $(notdir ${SOURCES}))))
 DEPENDS=$(addprefix ${DEPENDDIR}/,$(addsuffix .d,$(basename $(notdir ${SOURCES}))))
 
 # 程序名字
-PROGRAM:=${13:test}
+PROGRAM:=${14:test}
 
 # 调试标志，如果为1那么相关的编译选项将会做相应的改变
 # 以用于调试..如果非1那么将会做相关优化..
-DEBUG:=${14:1}
+DEBUG:=${15:1}
 
 # 伪目标定义
 .PHONY:all clean distclean install print_info
@@ -99,6 +103,7 @@ ifeq ($(DEBUG),1)
 	@${ECHO} "Setting project for debug"
 CFLAGS+=-g
 CXXFLAGS+=-g
+DFLAGS+=-D_TRACYONE_DEBUG
 BIN_DIR=./Debug
 else
 	@${ECHO} "Setting project for release"
