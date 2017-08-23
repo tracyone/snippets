@@ -132,7 +132,7 @@ snippet st "struct"
  * ${1:description here}
  */
 struct ${2:`!p snip.rv = (snip.basename or "name") + "_t"`} {
-	${3:/* data */}  //$4
+	${3:/* data */}  /*$4*/
 	$0
 };
 endsnippet
@@ -142,7 +142,7 @@ snippet ts "typedef a sturct" !b
  * ${1:description here}
  */
 typedef struct {
-	${2:/* data */} ; //$3
+	${2:/* data */} ; /*$3*/
 	$4
 }${5:`!p snip.rv = (snip.basename or "name") + "_t"`};
 endsnippet
@@ -150,9 +150,9 @@ endsnippet
 snippet cfun "function" b
 /**
  * @name       ${1:function_name}
- * @brief      ${2:funciton description}  
- * @param[IN]  $3 
- * @param[OUT] $4 
+ * @brief      ${2:funciton description}
+ * @param[IN]  $3
+ * @param[OUT] $4
  * @return	   $5
  */
 endsnippet
@@ -160,9 +160,9 @@ endsnippet
 snippet fun "function" b
 /**
  * @name       ${1:function_name}
- * @brief      ${2:funciton description}  
- * @param[IN]  $3 
- * @param[OUT] $4 
+ * @brief      ${2:funciton description}
+ * @param[IN]  $3
+ * @param[OUT] $4
  * @return	   $5
  */
 ${6:void} $1(${7})
@@ -183,43 +183,58 @@ ${6:void} $1(${0});
 endsnippet
 
 snippet chead "source file header" !b
-/**
- * Copyright (c),2002-`!v strftime("%Y")`,tracyone. 
- * All rights reserved.
+/*
+ * `!v expand("%:t")`
  *
- * @file			`!v expand("%:t")`
- * @brief			${1:description here}
- * @date			`!v strftime("%Y-%m-%d/%H:%M:%S")`
- * @compiler		${2:compiler or ide}
- * @author			tracyone , tracyone@live.cn
- * @lastchange		`!v strftime("%Y-%m-%d/%H:%M:%S")`
- * @history
- * 1,`!v strftime("%Y-%m-%d/%H:%M:%S")` first release
+ * Copyright (C) `!v strftime("%Y")` tracyone
  *
- * ================================================================
+ * Contacts: tracyone <tracyone@live.cn>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * 
+ * ${1:description}
  */
 
 ${0:/*CODE HERE*/}
 
-//End of File
+/*End of File*/
 endsnippet
 
 snippet hhead "include file header" !b
-/**
- * Copyright (c),2002-`!v strftime("%Y")`,tracyone. 
- * All rights reserved.
+/*
+ * `!v expand("%:t")`
  *
- * @file			`!v expand("%:t")`
- * @brief			${1:description here}
- * @date			`!v strftime("%Y-%m-%d/%H:%M:%S")`
- * @compiler		${2:compiler or ide}
- * @author			tracyone , tracyone@live.cn
- * @lastchange		`!v strftime("%Y-%m-%d/%H:%M:%S")`
- * @history
- * 1,`!v strftime("%Y-%m-%d/%H:%M:%S")` first release
+ * Copyright (C) `!v strftime("%Y")` tracyone
  *
- * ================================================================
+ * Contacts: tracyone <tracyone@live.cn>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * 
+ * ${1:description}
  */
+
 #ifndef _`!v toupper(tr(expand("%:t"),".","_"))`
 #define _`!v toupper(tr(expand("%:t"),".","_"))`
 
