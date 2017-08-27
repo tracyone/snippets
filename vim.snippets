@@ -21,4 +21,37 @@ fun ${1:function_name}($2)
 	${3:" code}
 endf
 endsnippet
+
+snippet for "for loop" b
+for ${1:needle} in ${2:haystack}
+	${3:" code}
+endfor
+endsnippet
+
+snippet wh "while loop" b
+while ${1:condition}
+	${2:" code}
+endw
+endsnippet
+
+snippet if "if condition" b
+if ${1:condition}
+	${2:" code}
+endif
+endsnippet
+
+snippet ife "if else " b
+if ${1:condition}
+	${2}
+else
+	${3}
+endif
+endsnippet
+
+snippet ag "augroup"
+augroup ${1:group_name}
+	autocmd!
+	$2
+augroup END
+endsnippet
 # vim:ft=snippets:
