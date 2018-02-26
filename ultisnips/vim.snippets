@@ -54,4 +54,12 @@ augroup ${1:group_name}
 	$2
 augroup END
 endsnippet
+
+snippet vimrc "vimrc sample"
+set nocompatible
+let &rtp=&rtp.','.${1:$HOME.'/.vim/bundle/}$2'
+colorscheme desert "default setting 
+filetype plugin indent on
+syntax on
+endsnippet
 # vim:ft=snippets:
