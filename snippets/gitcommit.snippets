@@ -1,25 +1,25 @@
-snippet k "kernel commit message"
-K${1:1}:${2:sunxi}:P${3:1}:${4:disp}:$5
+#kernel commit message
+snippet k
+	K${1:1}:${2:sunxi}:P${3:1}:${4:disp}:$5
 
-$6
-Module Version:${7:NULL}
-PMS BugID: ${8:NULL}
-endsnippet
+	$6
+	Module Version:${7:NULL}
+	PMS BugID: ${8:NULL}
 
-snippet u "uboot commit message"
-K${1:1}:${2:sunxi}:P${3:1}:${4:disp}:$5
+#uboot commit message
+snippet u 
+	K${1:1}:${2:sunxi}:P${3:1}:${4:disp}:$5
 
-$6
-Module Version:${7:NULL}
-PMS BugID: ${8:NULL}
-Start kernel:${9:NULL}
-endsnippet
+	$6
+	Module Version:${7:NULL}
+	PMS BugID: ${8:NULL}
+	Start kernel:${9:NULL}
 
-snippet a "android commit message"
-${1:feat}: ${2:hwc-hal}: $3
+#android commit message
+snippet a
+	${1:feat}: ${2:hwc-hal}: $3
 
-$4
-Scope: ${5:PAD}
-IssueID: ${6:66666}
-Relation: ${7:null}
-endsnippet
+	$4
+	Scope: ${5:PAD}
+	IssueID: ${6:66666}
+	Relation: ${7:null}
